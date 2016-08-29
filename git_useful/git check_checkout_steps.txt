@@ -1,0 +1,8 @@
+-1-pull
+2-changes
+3-stash //freeze
+-pull
+4-git stash pop
+5-make the necessary chagnes
+6-add n commit
+push

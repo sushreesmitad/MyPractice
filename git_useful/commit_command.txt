@@ -1,0 +1,27 @@
+git add .
+
+git commit -m "message"
+
+
+git push origin <CR4> -v
+
+checkout from git
+
+
+git stash
+
+git pull origin CR4
+
+git stash pop
+
+>git checkout CR3 swich from one branch to another
+
+Use the command 'git stash' to stash your changes,
+and 'git stash apply' to 
+
+
+if a file u deleted from local but want to get from repository 
+----------------------------------------------------------------------
+	
+git checkout filename
+

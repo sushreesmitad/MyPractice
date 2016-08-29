@@ -1,0 +1,100 @@
+
+
+--------------------------------------------------------
+--  FUNCTIONS START HERE -------------------------------
+
+--1-------------STATUS_VALUE-----------------------------
+--------------------------------------------------------
+
+create or replace FUNCTION "STATUS_VALUE" 
+(
+IN_STATUS VARCHAR,
+IN_CATEGORY VARCHAR
+)
+RETURNS NUMERIC AS
+ $$ -- here start procedural part
+  
+   DECLARE  VAL_NAME  NUMERIC;
+
+BEGIN
+IF (IN_STATUS IS NOT NULL) THEN
+		SELECT 
+				STATUSMASTER_ID INTO VAL_NAME 
+			FROM 
+					STATUS_MASTER 
+			WHERE 
+					STATUS=IN_STATUS 
+				AND 
+						STATUS_CATEGORY=IN_CATEGORY 
+					AND 
+						ISACTIVE='T';
+END IF;            
+RETURN VAL_NAME;
+END;
+$$ -- here finish procedural part
+language plpgsql;
+
+
+
+-------TEST FUNCTON "STATUS_VALUE" ----------------------
+
+SELECT "STATUS_VALUE"('YES','TRANSACTION');
+
+
+--2-------------STATUS-----------------------------
+--------------------------------------------------------
+
+create or replace FUNCTION "STATUS" 
+
+(ID NUMERIC)
+ 
+ RETURNS VARCHAR AS
+
+ $$ -- here start STATUS procedural part
+  DECLARE  VAL_NAME VARCHAR(100);
+BEGIN
+SELECT STATUS into VAL_NAME from STATUS_MASTER where STATUSMASTER_ID=ID AND ISACTIVE='T';
+RETURN VAL_NAME;
+END;
+$$ -- here finish STATUS procedural part
+language plpgsql;
+
+commit;
+
+--------TEST FUNCTION "STATUS"----------------------
+SELECT "STATUS"(9376563);
+
+--3-------------GET_MOBILE_NO-----------------------------
+--------------------------------------------------------
+
+
+
+create or replace FUNCTION "GET_MOBILE_NO" 
+(i_username VARCHAR)
+
+  RETURNS VARCHAR AS
+
+   $$ -- here start procedural part
+  
+   DECLARE  
+ X_PHONE_NO VARCHAR(255):=NULL;
+BEGIN
+		SELECT 	coalesce(MOBILE_NO,NULL)  INTO X_PHONE_NO
+		FROM USERS_INFO WHERE MOBILE_NO=i_username;
+ RETURN X_PHONE_NO;
+EXCEPTION
+         WHEN NO_DATA_FOUND
+         THEN
+         RETURN   X_PHONE_NO;
+      END;
+
+$$ -- here finish procedural part
+language plpgsql;
+commit;
+
+
+
+--------TEST FUNCTION "GET_MOBILE_NO"----------------------
+
+
+select "GET_MOBILE_NO"('8904629976');

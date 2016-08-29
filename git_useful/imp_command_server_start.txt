@@ -1,0 +1,8 @@
+
+[mobi@devlop OmnyPay_Testing]$ export JAVA_HOME="/usr/java/jdk1.7.0_71"
+
+
+Giving permission to the subfolder logs under devlop
+[mobi@devlop /]$  sudo chmod -R 777 /logs
+
+

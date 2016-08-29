@@ -1,0 +1,71 @@
+create new repo in git
+----------------------------
+
+write some code in eclipse and follow below commands for code pushing to new repo
+-------------------------------------------------
+
+
+take resource path of your project
+
+goto that location from command prompt
+
+-> git init
+->git remote add origin clone url of your project
+->git push -u origin master
+->git pull origin master
+
+
+-->git commit -m "test circle ci"
+
+Now circle ci get notification that we checkedin code to the git
+login to putty of qc server 
+do the following steps
+root@172.30.65.103's password:
+Last login: Tue Jun 14 12:47:30 2016 from 172.30.66.109
+[root@apc-ab ~]# ssh-keygen -C dhalsushreesmita4@gmail.com
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+0a:18:1f:ae:f6:ac:40:e7:cc:b1:68:33:5c:fb:d3:c0 dhalsushreesmita4@gmail.com
+The key's randomart image is:
++--[ RSA 2048]----+
+|                 |
+|                 |
+|  . .            |
+|   = .           |
+| ..+=   S        |
+|o B.+E .         |
+|.*o*  +          |
+|.ooo.. .         |
+|  ..o..          |
++-----------------+
+[root@apc-ab ~]# cat  /root/.ssh/id_rsa.pub.
+cat: /root/.ssh/id_rsa.pub.: No such file or directory
+[root@apc-ab ~]# cat  /root/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6m6z7ypq1Etp7JArsisxdnKtyyCyNCM01BQLUPIZHKH7wfgmQPYm4AMj0AN6YTkQNhmcizFsKdX3JyCvsYvwXmjv9JXEObvCTK5YwOf/49RIJ4hkuL4M4TuBgyyVTN/PFFK3wK0EbwGjJXX0HhnHDLNSugGoEVj//u8kQ3nl/aR2an0YcPLp7clzBiZX9Bvn/dqcKocuSW++FZWdenXXebGgJPVOrmp2SgC4ff7w9aglViZija8DY3SuBGbYtSGzrVveqOWpY2/tyRb5EPpuyZ0gcUOE+KU1HeLc8QpRyzfIDChzJXFOqu/LeCCG1LGL7x0BnT6KOmZRbkzuvMmQPw== dhalsushreesmita4@gmail.com
+
+
+
+now copied the above public key and goto git settings /ssh and gph key option and click on create new key 
+[root@apc-ab ~]# ssh git@github.com
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Enter passphrase for key '/root/.ssh/id_rsa':
+PTY allocation request failed on channel 0
+Hi sushreesmitad! You've successfully authenticated, but GitHub does not provide shell access.
+              Connection to github.com closed.
+
+
+then now goto circle ci and click on debug via ssh and take the below 
+ssh -p 64652 ubuntu@54.225.37.146 
+also  put it on putty ,well now u are on circle ci  console 
+ but below steps need modifcation
+
+[
+[root@apc-ab ~]#ssh -i /home/ec2-user/.ssh/id_rsa_github -p 64638 ubuntu@54.90.38.72

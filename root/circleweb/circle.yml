@@ -1,0 +1,13 @@
+deployment:
+  staging:
+    branch: master
+    codedeploy:
+      MyTestApplication:
+        application_root: /
+        region: us-west-2
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: amazonbuckettest
+            key_pattern: circleci-demo-app-master-firstcommit123
+        deployment_group: MyTestGroup

@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+ - source: /circleweb/target/circleweb.war
+   destination: /opt/server/apache-tomcat-7.0.70/webapps/
+hooks:  
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: scripts/cleanup.sh
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: scripts/start.sh
+      timeout: 300
+      runas: root
+

@@ -1,0 +1,102 @@
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch
+* master
+
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch  test
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch
+* master
+  test
+
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git checkout test
+Switched to branch 'test'
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (test)
+$ ls
+ApiServices/     Dockerfile         business-services/  conf/            logging-services/  persistence-services/  src/
+CommonServices/  MerchantServices/  circle.yml          email-services/  mobileApp/         pom.xml
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (test)
+$ vi Dockerfile
+
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (test)
+$ git add .
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (test)
+$ git commit -m "testing"
+[test 0f4cb7d] testing
+ 1 file changed, 23 insertions(+)
+
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (test)
+$ git push origin test
+Username for 'https://github.com': iliyasm
+Password for 'https://iliyasm@github.com':
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 323 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To https://github.com/omnypay/api-provisioning.git
+ * [new branch]      test -> test
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (test)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch
+* master
+  test
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git checkout master
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch
+* master
+  test
+---------------------------------delete branch-----------------------------
+
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch -D test
+Deleted branch test (was 0f4cb7d).
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git push origin :test
+Username for 'https://github.com': iliyasm
+Password for 'https://iliyasm@github.com':
+To https://github.com/omnypay/api-provisioning.git
+ - [deleted]         test
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git push origin :CR4
+Username for 'https://github.com': iliyasm
+Password for 'https://iliyasm@github.com':
+To https://github.com/omnypay/api-provisioning.git
+ - [deleted]         CR4
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch
+* master
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch CR4
+
+iliyasm@tamdx4-24 MINGW32 /d/GitHub/CR4_NEW_API_CLOUD_07_MARCH_2016/api-provisioning (master)
+$ git branch
+  CR4
+* master
+---------------------------------------------------------------------------
+
+
